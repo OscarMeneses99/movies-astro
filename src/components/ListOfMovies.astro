@@ -1,0 +1,32 @@
+---
+import MovieItem from "./MovieItem.astro";
+
+const url = "https://movies-backend.3.us-1.fl0.io/api/movies";
+const movies = await fetch(url)
+    .then((res) => res.json())
+    .catch((err) => console.log(err));
+---
+<section
+    class="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-5 px-4"
+>
+    {
+        movies.map(
+            ({ id, title, year, director, duration, poster, genre, rate }) => {
+                return (
+                    <figure>
+                        <MovieItem
+                            id={id}
+                            title={title}
+                            year={year}
+                            director={director}
+                            duration={duration}
+                            poster={poster}
+                            genre={genre}
+                            rate={rate}
+                        />
+                    </figure>
+                );
+            },
+        )
+    }
+</section>
