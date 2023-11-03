@@ -13,6 +13,7 @@ if (!info) {
     return Astro.redirect("/404");
 }
 ---
+
 <Layout title={`${info.title}`}>
     <main class="mx-auto max-w-xl px-4">
         <header class="flex place-items-center">
@@ -54,21 +55,24 @@ if (!info) {
                     >
                         {info.title}
                     </span>
-
                     <li>
-                        <span class="text-xl text-teal-700">Director: </span>
+                        <span class="text-xl text-teal-700">Synopsis:</span>
+                        <span class="text-lg font-mono">{info.synopsis}</span>
+                    </li>
+                    <li>
+                        <span class="text-xl text-teal-700">Director:</span>
                         <span class="text-lg font-mono">{info.director}</span>
                     </li>
-
                     <li>
-                        <span class="text-xl text-teal-700">Year: </span>
+                        <span class="text-xl text-teal-700">Year:</span>
                         <span class="text-lg font-mono">{info.year}</span>
                     </li>
 
                     <li>
-                        <span class="text-xl text-teal-700"> Duration: </span>
-                        <span class="text-lg font-mono">{info.duration} mins</span>
-
+                        <span class="text-xl text-teal-700"> Duration:</span>
+                        <span class="text-lg font-mono"
+                            >{info.duration} mins</span
+                        >
                     </li>
 
                     <ul>
@@ -83,7 +87,7 @@ if (!info) {
                     </ul>
 
                     <li>
-                        <span class="text-xl text-teal-700">Rate: </span>
+                        <span class="text-xl text-teal-700">Rate:</span>
                         <span class="text-lg font-mono">{info.rate}</span>
                     </li>
                 </ul>
