@@ -2,7 +2,7 @@
 
 This is an application made in express where you can search information about movies.
 
-You can access the deployed application here: [App](https://movies-astro-app.netlify.app/)
+You can access the deployed application here: [Movies-App](https://movies-astro-app.netlify.app/)
 
 ## Getting Started
 
@@ -32,17 +32,16 @@ git clone https://github.com/OscarMeneses99/movies-astro.git
 cd movies-astro
 ```
 
-### Installing Dependencies
-To install the project's dependencies, run the following command:
+### 🚀 Commands
 
-```bash
-npm install
-```
+All commands are run from the root of the project, from a terminal:
 
-### Running the Application
-You can start the development server by running the following command:
-
-```bash
-npm run dev
-```
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
