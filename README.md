@@ -2,7 +2,7 @@
 
 This is an application made in express where you can search information about movies.
 
-You can access the deployed application here: [App](https://movies-backend.3.us-1.fl0.io/api-docs/)
+You can access the deployed application here: [App](https://movies-astro-app.netlify.app/)
 
 ## Getting Started
 
