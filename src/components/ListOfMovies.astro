@@ -6,12 +6,23 @@ const movies = await fetch(url)
     .then((res) => res.json())
     .catch((err) => console.log(err));
 ---
+
 <section
     class="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-5 px-4"
 >
     {
         movies.map(
-            ({ _id, title, year, director, duration, poster, genre, rate }) => {
+            ({
+                _id,
+                title,
+                year,
+                director,
+                duration,
+                poster,
+                genre,
+                rate,
+                synopsis,
+            }) => {
                 return (
                     <figure>
                         <MovieItem
@@ -23,6 +34,7 @@ const movies = await fetch(url)
                             poster={poster}
                             genre={genre}
                             rate={rate}
+                            synopsis={synopsis}
                         />
                     </figure>
                 );
