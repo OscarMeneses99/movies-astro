@@ -1,6 +1,6 @@
 # Search for Information about Movies
 
-This is an application made in express where you can search information about movies.
+This is an application made in astro where you can search information about movies.
 
 You can access the deployed application here: [Movies-App](https://movies-astro-app.netlify.app/)
 
