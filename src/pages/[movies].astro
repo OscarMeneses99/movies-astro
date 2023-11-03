@@ -7,7 +7,7 @@ const movies = await fetch(url)
     .then((res) => res.json())
     .catch((err) => console.log(err));
 
-const info = movies.find((movie) => movie.id === Astro.params.movies);
+const info = movies.find((movie) => movie._id === Astro.params.movies);
 
 if (!info) {
     return Astro.redirect("/404");
@@ -41,14 +41,14 @@ if (!info) {
         >
             <picture class="w-full gap-5 relative">
                 <img
-                    class="aspect-[520/804] h-full object-cover w-full max-w-full rounded"
+                    class="aspect-[520/804] object-cover rounded"
                     src={info.poster}
                     alt={`Portada del libro ${info.title}`}
-                    style={`view-transition-name: movie-${info.id}`}
+                    style={`view-transition-name: movie-${info._id}`}
                 />
             </picture>
 
-            <aside class="flex flex-col content-start md:w-[300px] md:mt-0 p-2">
+            <aside class="flex flex-col content-start md:w-[500px] md:mt-0 p-2">
                 <ul>
                     <span
                         class="text-2xl font-bold text-teal-800 text-center md:text-left"

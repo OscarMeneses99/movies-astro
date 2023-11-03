@@ -1,6 +1,6 @@
 ---
 export interface Props {
-  id: string;
+  _id: string;
   title: string;
   year: number;
   director: string;
@@ -11,18 +11,18 @@ export interface Props {
   synopsis: string;
 }
 
-const { id, title, year, director, duration, poster, genre, rate, synopsis } =
+const { _id, title, year, director, duration, poster, genre, rate, synopsis } =
   Astro.props;
 ---
 
 <a
   class="hover:scale-105 inline-block transition-all hover:contrast-125 hover:shadow-2xl"
-  href={`/${id}`}
+  href={`/${_id}`}
 >
   <img
     alt={`Portada de la pelicula ${title}`}
     class="object-cover aspect-[520/804] rounded"
     src={poster}
-    style={`view-transition-name: movie-${id}`}
+    style={`view-transition-name: movie-${_id}`}
   />
 </a>

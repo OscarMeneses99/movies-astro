@@ -11,11 +11,11 @@ const movies = await fetch(url)
 >
     {
         movies.map(
-            ({ id, title, year, director, duration, poster, genre, rate }) => {
+            ({ _id, title, year, director, duration, poster, genre, rate }) => {
                 return (
                     <figure>
                         <MovieItem
-                            id={id}
+                            _id={_id}
                             title={title}
                             year={year}
                             director={director}
