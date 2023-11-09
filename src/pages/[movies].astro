@@ -4,94 +4,92 @@ import Title from "../components/Title.astro";
 
 const url = "https://movies-backend.3.us-1.fl0.io/api/movies";
 const movies = await fetch(url)
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
+  .then((res) => res.json())
+  .catch((err) => console.log(err));
 
 const info = movies.find((movie) => movie._id === Astro.params.movies);
 
 if (!info) {
-    return Astro.redirect("/404");
+  return Astro.redirect("/404");
 }
 ---
 
 <Layout title={`${info.title}`}>
-    <main class="mx-auto max-w-xl px-4">
-        <header class="flex place-items-center">
-            <a href="/" type="button">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="icon icon-tabler icon-tabler-chevron-left hover:text-gray-700"
-                    width="60"
-                    height="60"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    fill="none"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                >
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"> </path>
-                    <path d="M15 6l-6 6l6 6"> </path>
-                </svg>
-            </a>
-            <Title />
-        </header>
-        <div
-            class="grid grid-cols-1 justify-center md:grid-cols-[350px_1fr] gap-3 px-8"
+  <main class="mx-auto max-w-xl px-4">
+    <header class="flex place-items-center">
+      <a href="/" type="button">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-chevron-left hover:text-gray-700"
+          width="60"
+          height="60"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
         >
-            <picture class="w-full gap-5 relative">
-                <img
-                    class="aspect-[520/804] object-cover rounded"
-                    src={info.poster}
-                    alt={`Portada del libro ${info.title}`}
-                    style={`view-transition-name: movie-${info._id}`}
-                />
-            </picture>
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"> </path>
+          <path d="M15 6l-6 6l6 6"> </path>
+        </svg>
+      </a>
+      <Title />
+    </header>
+    <div
+      class="grid grid-cols-1 justify-center md:grid-cols-[350px_1fr] gap-3 px-8"
+    >
+      <picture class="w-full gap-5 relative">
+        <img
+          class="aspect-[520/804] object-cover rounded"
+          src={info.poster}
+          alt={`Portada del libro ${info.title}`}
+          style={`view-transition-name: movie-${info._id}`}
+        />
+      </picture>
 
-            <aside class="flex flex-col content-start md:w-[500px] md:mt-0 p-2">
-                <ul>
-                    <span
-                        class="text-2xl font-bold text-teal-800 text-center md:text-left"
-                    >
-                        {info.title}
-                    </span>
-                    <li>
-                        <span class="text-xl text-teal-700">Synopsis: </span>
-                        <span class="text-lg font-mono">{info.synopsis}</span>
-                    </li>
-                    <li>
-                        <span class="text-xl text-teal-700">Director: </span>
-                        <span class="text-lg font-mono">{info.director}</span>
-                    </li>
-                    <li>
-                        <span class="text-xl text-teal-700">Year: </span>
-                        <span class="text-lg font-mono">{info.year}</span>
-                    </li>
+      <aside class="flex flex-col content-start md:w-[500px] md:mt-0 p-2">
+        <ul>
+          <span
+            class="text-2xl font-bold text-teal-800 text-center md:text-left"
+          >
+            {info.title}
+          </span>
+          <li>
+            <span class="text-xl text-teal-700">Synopsis:</span>
+            <span class="text-lg font-mono">{info.synopsis}</span>
+          </li>
+          <li>
+            <span class="text-xl text-teal-700">Director:</span>
+            <span class="text-lg font-mono">{info.director}</span>
+          </li>
+          <li>
+            <span class="text-xl text-teal-700">Year:</span>
+            <span class="text-lg font-mono">{info.year}</span>
+          </li>
 
-                    <li>
-                        <span class="text-xl text-teal-700"> Duration: </span>
-                        <span class="text-lg font-mono"
-                            >{info.duration} mins</span
-                        >
-                    </li>
+          <li>
+            <span class="text-xl text-teal-700"> Duration:</span>
+            <span class="text-lg font-mono">{info.duration} mins</span>
+          </li>
 
-                    <ul>
-                        <span class="text-xl text-teal-700">Genre: </span>
-                        {
-                            info.genre.map((genre) => (
-                                <li class="text-lg text-gray-700 font-mono list-none px-4">
-                                    {genre}
-                                </li>
-                            ))
-                        }
-                    </ul>
+          <ul>
+            <span class="text-xl text-teal-700">Genre:</span>
+            {
+              info.genre.map((genre) => (
+                <li class="text-lg text-gray-700 font-mono list-none px-4">
+                  {genre}
+                </li>
+              ))
+            }
+          </ul>
 
-                    <li>
-                        <span class="text-xl text-teal-700">Rate: </span>
-                        <span class="text-lg font-mono">{info.rate}</span>
-                    </li>
-                </ul>
-            </aside>
-        </div>
-    </main>
+          <li>
+            <span class="text-xl text-teal-700">Rate:</span>
+            <span class="text-lg font-mono">{info.rate}</span>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
 </Layout>

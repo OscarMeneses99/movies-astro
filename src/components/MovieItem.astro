@@ -2,17 +2,10 @@
 export interface Props {
   _id: string;
   title: string;
-  year: number;
-  director: string;
-  duration: number;
   poster: string;
-  genre: string;
-  rate: number;
-  synopsis: string;
 }
 
-const { _id, title, year, director, duration, poster, genre, rate, synopsis } =
-  Astro.props;
+const { _id, title, poster } = Astro.props;
 ---
 
 <a

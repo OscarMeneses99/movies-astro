@@ -1,44 +1,45 @@
 ---
 import MovieItem from "./MovieItem.astro";
 
-const url = "https://movies-backend.3.us-1.fl0.io/api/movies";
-const movies = await fetch(url)
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
+const { search } = Astro.props;
+
+const searchByTitle = async () => {
+  if (search === undefined) {
+    const url = "https://movies-backend.3.us-1.fl0.io/api/movies";
+    const movies = await fetch(url)
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+    return movies;
+  } else if (search !== undefined) {
+    const url = `https://movies-backend.3.us-1.fl0.io/api/movies?title=${search}`;
+    const movies = await fetch(url)
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
+    return movies;
+  }
+};
+
+const movies = await searchByTitle();
 ---
 
 <section
-    class="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-5 px-4"
+  class="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-5 px-4"
 >
-    {
-        movies.map(
-            ({
-                _id,
-                title,
-                year,
-                director,
-                duration,
-                poster,
-                genre,
-                rate,
-                synopsis,
-            }) => {
-                return (
-                    <figure>
-                        <MovieItem
-                            _id={_id}
-                            title={title}
-                            year={year}
-                            director={director}
-                            duration={duration}
-                            poster={poster}
-                            genre={genre}
-                            rate={rate}
-                            synopsis={synopsis}
-                        />
-                    </figure>
-                );
-            },
-        )
-    }
+  {
+    movies &&
+      movies.map(({ _id, title, poster }) => {
+        return (
+          <figure>
+            <MovieItem _id={_id} title={title} poster={poster} />
+          </figure>
+        );
+      })
+  }
+  {
+    movies === "undefined" && (
+      <p class="absolute mt-[50px] text-xl font-light text-black/70">
+        No Movies Found
+      </p>
+    )
+  }
 </section>
