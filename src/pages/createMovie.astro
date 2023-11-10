@@ -18,7 +18,6 @@ import Arrow from "../assets/chevron-left.astro";
       </header>
 
       <form
-      action="/"
         method="post"
         class="space-y-5 rounded-lg p-4 shadow-xl sm:p-6 lg:p-8"
       >
@@ -27,7 +26,7 @@ import Arrow from "../assets/chevron-left.astro";
           <input
             type="text"
             class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Example: The Godfather"
+            placeholder="The Godfather"
           />
         </div>
 
@@ -38,8 +37,8 @@ import Arrow from "../assets/chevron-left.astro";
               type="number"
               min="1900"
               max="2025"
-              class="w-[165px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-              placeholder="Example: 1975"
+              class="w-[140px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              placeholder="1975"
             />
           </div>
           <div>
@@ -50,8 +49,8 @@ import Arrow from "../assets/chevron-left.astro";
               type="number"
               min="1"
               max="500"
-              class="w-[165px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-              placeholder="Example: 175"
+              class="w-[140px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              placeholder="175"
             />
           </div>
         </div>
@@ -63,26 +62,18 @@ import Arrow from "../assets/chevron-left.astro";
             min="1900"
             max="2025"
             class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-            placeholder="Example: Francis Ford Coppola"
+            placeholder="Francis Ford Coppola"
           />
         </div>
 
         <div class="flex justify-around">
           <div>
             <label class="block text-md font-mono text-teal-700"> Genre</label>
-            <select
-              class="w-[165px] h-[50px] rounded-lg border-gray-200 bg-white p-4 pe-12 text-sm shadow-sm"
-            >
-              <option value="Action">Action</option>
-              <option value="Adventure">Adventure</option>
-              <option value="Animation">Animation</option>
-              <option value="Biography">Biography</option>
-              <option value="Crime">Crime</option>
-              <option value="Drama">Drama</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Romance">Romance</option>
-              <option value="Sci-Fi">Sci-Fi</option>
-            </select>
+            <input
+              type="text"
+              class="w-[180px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              placeholder="Action, Drama..."
+            />
           </div>
           <div>
             <label class="block text-md font-mono text-teal-700"> Rate</label>
@@ -91,8 +82,8 @@ import Arrow from "../assets/chevron-left.astro";
               step="0.1"
               min="1"
               max="10"
-              class="w-[165px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-              placeholder="Example: 9.3"
+              class="w-[90px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              placeholder="9.3"
             />
           </div>
         </div>
@@ -112,13 +103,13 @@ import Arrow from "../assets/chevron-left.astro";
           <textarea
             class="mt-2 w-full p-3 rounded-lg border-gray-200 align-top shadow-sm sm:text-sm"
             rows="6"
-            placeholder="Example: The Godfather is a 1972 crime drama film that revolves around the Corleone Mafia family, led by Vito Corleone. It explores themes of power, family, and loyalty as his son Michael gets involved in the family's criminal activities after an assassination attempt on Vito. The movie is renowned for its storytelling, complex characters, and iconic performances."
+            placeholder="The Godfather is a 1972 crime drama film that revolves around the Corleone Mafia family, led by Vito Corleone. It explores themes of power, family, and loyalty as his son Michael gets involved in the family's criminal activities after an assassination attempt on Vito. The movie is renowned for its storytelling, complex characters, and iconic performances."
           ></textarea>
         </div>
 
         <button
           type="submit"
-          class="block w-full rounded-lg bg-teal-600 px-5 py-3 text-sm font-medium text-white"
+          class="block w-full rounded-lg bg-teal-600 hover:bg-teal-700 px-5 py-3 text-sm font-medium text-white"
         >
           Create
         </button>
