@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Arrow from "../assets/chevron-left.astro";
+---
+
+<Layout title="Create movie">
+  <main class="mx-auto max-w-screen-xl px-4 py-2 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-lg">
+      <header class="flex place-items-center">
+        <a href="/" type="button">
+          <Arrow />
+        </a>
+        <h1
+          class="font-black uppercase text-4xl md:text-5xl text-center py-5 px-4"
+        >
+          Create movie
+        </h1>
+      </header>
+
+      <form
+      action="/"
+        method="post"
+        class="space-y-5 rounded-lg p-4 shadow-xl sm:p-6 lg:p-8"
+      >
+        <div>
+          <label class="block text-md font-mono text-teal-700"> Title</label>
+          <input
+            type="text"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            placeholder="Example: The Godfather"
+          />
+        </div>
+
+        <div class="flex justify-around">
+          <div>
+            <label class="block text-md font-mono text-teal-700"> Year</label>
+            <input
+              type="number"
+              min="1900"
+              max="2025"
+              class="w-[165px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              placeholder="Example: 1975"
+            />
+          </div>
+          <div>
+            <label class="block text-md font-mono text-teal-700">
+              Duration
+            </label>
+            <input
+              type="number"
+              min="1"
+              max="500"
+              class="w-[165px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              placeholder="Example: 175"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-md font-mono text-teal-700"> Director</label>
+          <input
+            type="text"
+            min="1900"
+            max="2025"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            placeholder="Example: Francis Ford Coppola"
+          />
+        </div>
+
+        <div class="flex justify-around">
+          <div>
+            <label class="block text-md font-mono text-teal-700"> Genre</label>
+            <select
+              class="w-[165px] rounded-lg border-gray-200 bg-white p-4 pe-12 text-sm shadow-sm"
+            >
+              <option value="Action">Action</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Animation">Animation</option>
+              <option value="Biography">Biography</option>
+              <option value="Crime">Crime</option>
+              <option value="Drama">Drama</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Romance">Romance</option>
+              <option value="Sci-Fi">Sci-Fi</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-md font-mono text-teal-700"> Rate</label>
+            <input
+              type="number"
+              step="0.1"
+              min="1"
+              max="10"
+              class="w-[165px] rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+              placeholder="Example: 9.3"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-md font-mono text-teal-700"> Poster</label>
+          <input
+            type="text"
+            class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
+            placeholder="https://img.fruugo.com/product/4/49/14441494_max.jpg"
+          />
+        </div>
+
+        <div>
+          <label class="block text-md font-mono text-teal-700"> Synopsis</label>
+
+          <textarea
+            class="mt-2 w-full p-3 rounded-lg border-gray-200 align-top shadow-sm sm:text-sm"
+            rows="6"
+            placeholder="Example: The Godfather is a 1972 crime drama film that revolves around the Corleone Mafia family, led by Vito Corleone. It explores themes of power, family, and loyalty as his son Michael gets involved in the family's criminal activities after an assassination attempt on Vito. The movie is renowned for its storytelling, complex characters, and iconic performances."
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="block w-full rounded-lg bg-teal-600 px-5 py-3 text-sm font-medium text-white"
+        >
+          Create
+        </button>
+      </form>
+    </div>
+  </main>
+</Layout>

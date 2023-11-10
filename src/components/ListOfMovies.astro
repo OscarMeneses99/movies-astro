@@ -1,25 +1,10 @@
 ---
 import MovieItem from "./MovieItem.astro";
+import { searchByTitle } from "../api/movies.js";
 
-const { search } = Astro.props;
+const { title } = Astro.props;
 
-const searchByTitle = async () => {
-  if (search === undefined) {
-    const url = "https://movies-backend.3.us-1.fl0.io/api/movies";
-    const movies = await fetch(url)
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
-    return movies;
-  } else if (search !== undefined) {
-    const url = `https://movies-backend.3.us-1.fl0.io/api/movies?title=${search}`;
-    const movies = await fetch(url)
-      .then((res) => res.json())
-      .catch((err) => console.log(err));
-    return movies;
-  }
-};
-
-const movies = await searchByTitle();
+const movies = await searchByTitle(title);
 ---
 
 <section

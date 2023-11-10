@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
+import Arrow from "../assets/chevron-left.astro";
 
 const url = "https://movies-backend.3.us-1.fl0.io/api/movies";
 const movies = await fetch(url)
@@ -15,24 +16,10 @@ if (!info) {
 ---
 
 <Layout title={`${info.title}`}>
-  <main class="mx-auto max-w-xl px-4">
+  <main class="mx-auto max-w-xl mt-5 px-4">
     <header class="flex place-items-center">
       <a href="/" type="button">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-chevron-left hover:text-gray-700"
-          width="60"
-          height="60"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"> </path>
-          <path d="M15 6l-6 6l6 6"> </path>
-        </svg>
+        <Arrow />
       </a>
       <Title />
     </header>

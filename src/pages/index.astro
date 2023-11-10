@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import ListOfMovies from "../components/ListOfMovies.astro";
+import Plus from "../assets/file-plus.astro";
 
-async function getTitle() {
+async function inputTitle() {
   if (Astro.request.method === "POST") {
     const data = await Astro.request.formData();
     const title = data.get("title");
@@ -11,20 +12,33 @@ async function getTitle() {
   }
 }
 
-const title = await getTitle();
+const title = await inputTitle();
 ---
 
 <Layout title="Movies">
-  <main class="m-auto max-w-xl flex flex-col">
+  <main class="m-auto max-w-xl flex flex-col py-14">
+    <a
+      href="/createMovie"
+      class="absolute top-0 right-0 mt-5 mr-2 text-teal-500 hover:text-teal-600"
+    >
+      <Plus />
+    </a>
     <Title />
-    <form method="POST">
+    <form method="POST" class="flex justify-center gap-2">
       <input
         type="text"
         name="title"
         placeholder="Search for a movie..."
-        class="mx-auto block mb-10 p-3 w-1/2 border-2 border-teal-500 rounded-lg focus:outline-none focus:border-teal-500"
+        class="mb-10 p-3 w-1/2 border-2 border-teal-500 rounded-lg focus:outline-none focus:border-teal-500"
       />
+      <button
+        type="submit"
+        class="mb-10 p-3 w-1/4 bg-teal-500 text-white rounded-lg hover:bg-teal-600 focus:outline-none focus:bg-teal-600"
+      >
+        Search
+      </button>
     </form>
+
     {
       title && (
         <p class="text-center text-2xl mb-10">
@@ -32,6 +46,6 @@ const title = await getTitle();
         </p>
       )
     }
-    <ListOfMovies search={title} />
+    <ListOfMovies title={title} />
   </main>
 </Layout>
