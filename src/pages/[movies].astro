@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 import Arrow from "../assets/chevron-left.astro";
+import EditIcon from "../assets/edit.astro";
+import DeleteIcon from "../assets/trash.astro";
 
 const url = "https://movies-backend.3.us-1.fl0.io/api/movies";
 const movies = await fetch(url)
@@ -29,13 +31,17 @@ if (!info) {
       <picture class="w-full gap-5">
         <div class="flex mb-3 gap-2">
           <button
-            class="w-1/2 h-[40px] border rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white"
-            >Modify</button
+            class="flex place-content-center items-center w-1/2 h-[40px] border rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white"
           >
+            <span>Modify</span>
+            <span class="ml-2"><EditIcon /></span>
+          </button>
           <button
-            class="w-1/2 h-[40px] border rounded-lg bg-rose-500 hover:bg-rose-600 text-white"
-            >Delete</button
+            class="flex place-content-center items-center w-1/2 h-[40px] border rounded-lg bg-rose-500 hover:bg-rose-600 text-white"
           >
+            <span>Delete</span>
+            <span class="ml-2"><DeleteIcon /></span>
+          </button>
         </div>
         <img
           class="aspect-[520/804] object-cover rounded"
